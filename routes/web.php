@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::get('/articulos', [ArticuloController::class, 'articulos'])->name('articulos');
 Route::get('/listadeseos', [ArticuloController::class, 'lista_deseos'])->name('lista_deseos');
 
+Route::post('/addlistadeseos', [ArticuloController::class, 'add_lista_deseos'])->name('addlistadeseos');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

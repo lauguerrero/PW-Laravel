@@ -51,8 +51,13 @@
                     <td><div style="text-align: center;">
                         <form method="post">
                             <div class="add-listadeseados-container">
-                            <input type="hidden" name="Id_Articulo" value="{{$fila->Id_Articulo}}">
-                            <button type="submit" class="add-listadeseados" name="add-listadeseados"</button></div>
+                                <input type="hidden" name="Id_Articulo" value="{{$fila->Id_Articulo}}">
+                                @if(in_array($fila->Id_Articulo, $lista_deseos))
+                                    <button type="submit" class="add-listadeseados" name="add-listadeseados" value="delete">En tu lista de deseos</button>
+                                @else
+                                    <button type="submit" class="add-listadeseados" name="add-listadeseados" value="add">Añadir a tu lista de deseos</button>
+                                @endif
+                            </div>
                         </form>
 
                         <form action="producto.php" method="get"><input type="hidden" name="Id_Articulo" value="{{$fila->Id_Articulo}}"><input type="image" alt="Submit" class="imagen-anuncio" height="300" width="250" src="{{ asset(convertir_ruta($fila->Imagen))}}">
