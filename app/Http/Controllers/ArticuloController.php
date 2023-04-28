@@ -9,10 +9,11 @@ class ArticuloController extends Controller
 {
     public function articulos(){
         $articulos = Articulo::all();
+        $logged_user = 1;
         $lista_deseos = Articulo::whereIn('Id_Articulo', function($query) use ($logged_user) {
             $query->select('id_Articulo')
-                  ->from('Deseos')
-                  ->where('id_Usuario', '=', $logged_user);
+                ->from('Deseos')
+                ->where('id_Usuario', '=', $logged_user);
         })
         ->get();
         return view('articulos.articulos')->with(['articulos'=>$articulos, 'lista_deseos'=>$lista_deseos]);
@@ -22,8 +23,8 @@ class ArticuloController extends Controller
         $logged_user = 1; //Usuario logeado temporal de prueba
         $articulos = Articulo::whereIn('Id_Articulo', function($query) use ($logged_user) {
             $query->select('id_Articulo')
-                  ->from('Deseos')
-                  ->where('id_Usuario', '=', $logged_user);
+                ->from('Deseos')
+                ->where('id_Usuario', '=', $logged_user);
         })
         ->get();
 
