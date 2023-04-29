@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -39,15 +40,17 @@ class IndexController extends Controller
 
     public function aut_register(Request $request){
         $this->validate($request, [
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|unique:users|max:255',
             'email' => 'required|string|email|unique:users|max:255',
-            'password' => 'required|string|min:8|confirmed',
+            'telefono' => 'required|integer|unique:users|digits:9',
+            'contrasena' => 'required|string|min:8|confirmed',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'telefono' => $request->telefono,
+            'contrasena' => bcrypt($request->contrasena),
         ]);
 
         Auth::login($user);

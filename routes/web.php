@@ -22,8 +22,9 @@ Route::get('/articulos', [ArticuloController::class, 'articulos'])->name('articu
 Route::get('/listadeseos', [ArticuloController::class, 'lista_deseos'])->name('lista_deseos');
 
 Route::post('/addlistadeseos', [ArticuloController::class, 'add_lista_deseos'])->name('addlistadeseos');
-Route::post('/login', [IndexController::class, 'login'])->name('login');
-Route::post('/register', [IndexController::class, 'register'])->name('register');
+
+Route::get('/login', [IndexController::class, 'login'])->name('login');
+Route::get('/register', [IndexController::class, 'register'])->name('register');
 Route::post('/aut_login', [IndexController::class, 'aut_login'])->name('aut_login');
 Route::post('/aut_register', [IndexController::class, 'aut_register'])->name('aut_register');
 

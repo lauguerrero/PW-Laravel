@@ -1,12 +1,9 @@
-@extends('layouts.header')
-@section('contenido')
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <title>TheReUseShop</title>
-    <link rel="stylesheet" href="{{ URL::asset('css/Login.css'); }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/login.css'); }}">
 </head>
 
 <body>
@@ -15,14 +12,20 @@
         <h2>Segundas oportunidades para objetos únicos</h2>
 
         <section>
-            <form method="POST" action="{{ route('aut_register') }}">
+            <form method="POST" action="{{ route('aut_login') }}">
                 @csrf
                 <label for="email">Email</label>
                 <input type="text" name="email" size=8 maxlength=20 checked = "checked">
+                @if ($errors->has('email'))
+                    <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+                @endif
                 <br>
                 <br>
                 <label for="password">Contraseña</label>
-                <input type="password" name="pwd" size="8" maxlength="20">
+                <input type="password" name="password" size="8" maxlength="20">
+                @if ($errors->has('password'))
+                    <div class="alert alert-danger">{{ $errors->first('password') }}</div>
+                @endif
                 <br>
                 <br>
                 <input type="submit" value="Acceder">
@@ -33,4 +36,3 @@
 
 </html>
 
-@endsection
