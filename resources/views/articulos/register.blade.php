@@ -20,18 +20,24 @@
                 @endif
                 <br>
                 <br>
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" value="{{ old('nombre') }}" size=8 maxlength=20 placeholder="Nombre"checked = "checked">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="Nombre" value="{{ old('Nombre') }}" size=8 maxlength=20 placeholder="Nombre"checked = "checked">
+                @if ($errors->has('Nombre'))
+                    <div class="alert alert-danger">{{ $errors->first('Nombre') }}</div>
+                @endif
                 <br>
                 <br>
-                <label for="apellido">Apellido</label>
-                <input type="text" name="apellido" value="{{ old('apellido') }}" size=8 maxlength=20 placeholder="Apellido" checked = "checked">
+                <label for="Apellidos">Apellido</label>
+                <input type="text" name="Apellidos" value="{{ old('Apellidos') }}" size=8 maxlength=20 placeholder="Apellido" checked = "checked">
+                @if ($errors->has('Apellidos'))
+                    <div class="alert alert-danger">{{ $errors->first('Apellidos') }}</div>
+                @endif
                 <br>
                 <br>
-                <label for="telefono">Numero de Telefono</label>
-                <input type="number" name="telefono" value="{{ old('phone') }}" size=5 maxlength=9 placeholder="Numero de telefono" checked = "checked">
-                @if ($errors->has('telefono'))
-                    <div class="alert alert-danger">{{ $errors->first('telefono') }}</div>
+                <label for="Telefono">Numero de Telefono</label>
+                <input type="number" name="Telefono" value="{{ old('Telefono') }}" size=5 maxlength=9 placeholder="Numero de telefono" checked = "checked">
+                @if ($errors->has('Telefono'))
+                    <div class="alert alert-danger">{{ $errors->first('Telefono') }}</div>
                 @endif
                 <br>
                 <br>
@@ -44,13 +50,16 @@
                 <br>
                 <label for="contrasena">Contraseña</label>
                 <input type="password" name="contrasena" size="13" placeholder="Contraseña" maxlength="20">
-                @if ($errors->has('password'))
-                    <div class="alert alert-danger">{{ $errors->first('password') }}</div>
+                @if ($errors->has('contrasena'))
+                    <div class="alert alert-danger">{{ $errors->first('contrasena') }}</div>
                 @endif
                 <br>
                 <br>
-                <label for="cpassword">Repetir contraseña</label>
-                <input type="password" name="password_confirmation" size="13" placeholder="Repetir contraseña" maxlength="20">
+                <label for="contrasena_confirmation">Repetir contraseña</label>
+                <input type="password" name="contrasena_confirmation" size="13" placeholder="Repetir contraseña" maxlength="20">
+                @if ($errors->has('contrasena_confirmation'))
+                    <div class="alert alert-danger">{{ $errors->first('contrasena_confirmation') }}</div>
+                @endif
                 <br>
                 <br>
                 <input type="submit" value="Acceder">

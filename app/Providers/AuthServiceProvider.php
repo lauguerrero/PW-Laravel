@@ -1,26 +1,35 @@
 <?php
 
 namespace App\Providers;
-
-// use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The model to policy mappings for the application.
-     *
-     * @var array<class-string, class-string>
-     */
-    protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-    ];
-
-    /**
      * Register any authentication / authorization services.
+     *
+     * @return void
      */
-    public function boot(): void
+    public function boot(Request $request)
     {
-        //
+        $this->app['auth']->viaRequest('api', function ($request) {
+            if ($request->header('Authorization')) {
+                list($type, $token) = explode(' ', $request->header('Authorization'), 2);
+                if ($type === 'Bearer') {
+                    $user = User::where('api_token', $token)->first();
+                    if ($user) {
+                        $request->request->add(['user' => $user]);
+                    }
+                    return $user;
+                }
+            }
+        });
+
+        Auth::attempt([
+            'email' => $request->input('email'),
+            'password' => $request->input('contrasena')
+        ], $request->input('remember'));
     }
 }

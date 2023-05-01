@@ -20,6 +20,9 @@ class User extends Authenticatable
 
     protected $table = 'Usuario';
     protected $primaryKey = 'Id_Usuario';
+
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,8 +30,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'Nombre',
+        'Apellidos',
         'email',
-        'password',
+        'Telefono',
+        'contrasena',
+        'esAdmin',
     ];
 
     /**
@@ -37,16 +44,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'contrasena',
     ];
 
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     *@var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    //protected $casts = [
+        //'email_verified_at' => 'datetime',
+    //];
 }

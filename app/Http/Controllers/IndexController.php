@@ -24,10 +24,13 @@ class IndexController extends Controller
     public function aut_login(Request $request){
         $this->validate($request, [
             'email' => 'required|string|email',
-            'password' => 'required|string',
+            'contrasena' => 'required|string',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = [
+            'email' => $request->input('email'),
+            'contrasena' => bcrypt($request->input('contrasena'))
+        ];
 
         if (Auth::attempt($credentials)) {
             return redirect('/articulos');
@@ -40,17 +43,22 @@ class IndexController extends Controller
 
     public function aut_register(Request $request){
         $this->validate($request, [
-            'username' => 'required|string|unique:users|max:255',
-            'email' => 'required|string|email|unique:users|max:255',
-            'telefono' => 'required|integer|unique:users|digits:9',
+            'username' => 'required|string|unique:Usuario|max:255',
+            'Nombre' => 'required|string|max:255',
+            'Apellidos' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:Usuario|max:255',
+            'Telefono' => 'required|integer|unique:Usuario|digits:9',
             'contrasena' => 'required|string|min:8|confirmed',
         ]);
 
         $user = User::create([
             'username' => $request->username,
+            'Nombre' => $request->Nombre,
+            'Apellidos' => $request->Apellidos,
             'email' => $request->email,
-            'telefono' => $request->telefono,
+            'Telefono' => $request->Telefono,
             'contrasena' => bcrypt($request->contrasena),
+            'esAdmin' => 0,
         ]);
 
         Auth::login($user);

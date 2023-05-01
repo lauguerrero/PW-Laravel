@@ -21,10 +21,10 @@
                 @endif
                 <br>
                 <br>
-                <label for="password">Contraseña</label>
-                <input type="password" name="password" size="8" maxlength="20">
-                @if ($errors->has('password'))
-                    <div class="alert alert-danger">{{ $errors->first('password') }}</div>
+                <label for="contrasena">Contraseña</label>
+                <input type="password" name="contrasena" size="8" maxlength="20">
+                @if ($errors->has('contrasena'))
+                    <div class="alert alert-danger">{{ $errors->first('contrasena') }}</div>
                 @endif
                 <br>
                 <br>
