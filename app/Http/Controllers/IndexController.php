@@ -29,7 +29,7 @@ class IndexController extends Controller
 
         $credentials = [
             'email' => $request->input('email'),
-            'contrasena' => bcrypt($request->input('contrasena'))
+            'password' => bcrypt($request->input('contrasena'))
         ];
 
         if (Auth::attempt($credentials)) {
