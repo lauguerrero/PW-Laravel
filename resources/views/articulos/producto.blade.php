@@ -27,7 +27,7 @@
 </table>
 <br>
 
-<form method="post">
+<form method="get" action = '{{ route("addreserva")}}'>
     <div style="text-align:center;">
         <input type="hidden" name="Id_Articulo" value="{{ $articulo->Id_Articulo }}">
         @if($articulo->id_Usuario == $usuario->Id_Usuario)

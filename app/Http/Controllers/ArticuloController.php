@@ -79,11 +79,27 @@ class ArticuloController extends Controller
         return view('articulos.listadeseos')->with(['articulos'=>$articulos, 'lista_deseos'=>$lista_deseos]);
     }
 
+    public function addreserva(Request $request){
+        $logged_user = 1; //Usuario logeado temporal de prueba
+        $id_articulo = $request->input('Id_Articulo');
+
+        $art = Articulo::find($id_articulo);
+        if($request->input('reserva') == 'delete') { //En este caso significa que queremos cancelar la reserva del producto
+            $art->id_UReserva = NULL;
+        } else if($request->input('reserva') == 'add') { //En este caso significa que queremos reservar el producto
+            $art->id_UReserva = $logged_user;
+        }
+        $art->save();
+
+        $usuario = User::where('Id_Usuario', $logged_user)->first();
+        $articulo = Articulo::where('Id_Articulo', $id_articulo)->first();
+        return view('articulos.producto')->with(['articulo'=>$articulo, 'usuario'=>$usuario]);
+    }
+
     public function mostrar_articulo(Request $request){
         $logged_user = 1; //Usuario logeado temporal de prueba
         $usuario = User::where('Id_Usuario', $logged_user)->first();
         $articulo = Articulo::where('Id_Articulo', $request->input('Id_Articulo'))->first();
         return view('articulos.producto')->with(['articulo'=>$articulo, 'usuario'=>$usuario]);
-
     }
 }

@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/addlistadeseos_articulo', [ArticuloController::class, 'add_lista_deseos_ART'])->name('addlistadeseos_articulo');
     Route::get('/addlistadeseos_deseo', [ArticuloController::class, 'add_lista_deseos_LIS'])->name('addlistadeseos_deseo');
+    Route::get('/addreserva', [ArticuloController::class, 'addreserva'])->name('addreserva');
 
     Route::get('/producto', [ArticuloController::class, 'mostrar_articulo'])->name('mostrar_articulo');
     
