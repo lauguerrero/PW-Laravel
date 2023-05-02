@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
