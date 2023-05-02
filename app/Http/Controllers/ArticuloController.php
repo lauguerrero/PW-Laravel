@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\Deseo;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -76,5 +77,13 @@ class ArticuloController extends Controller
         $lista_deseos = $articulos;
 
         return view('articulos.listadeseos')->with(['articulos'=>$articulos, 'lista_deseos'=>$lista_deseos]);
+    }
+
+    public function mostrar_articulo(Request $request){
+        $logged_user = 1; //Usuario logeado temporal de prueba
+        $usuario = User::where('Id_Usuario', $logged_user)->first();
+        $articulo = Articulo::where('Id_Articulo', $request->input('Id_Articulo'))->first();
+        return view('articulos.producto')->with(['articulo'=>$articulo, 'usuario'=>$usuario]);
+
     }
 }
