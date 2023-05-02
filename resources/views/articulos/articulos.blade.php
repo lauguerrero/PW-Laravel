@@ -24,7 +24,7 @@
             <div class="dropdown" style="float:right;">
                 <button class="userbtn">Usuario</button>
                 <div class="dropdown-content" style="float:left;">
-                    <a href="./Perfil.php">Mi Perfil</a>
+                    <a href="{{ route('showProfile') }}">Mi Perfil</a>
                     <a href="{{ route('lista_deseos') }}">Lista Deseos</a>
                     <a href="./ListaReservas.php">Lista Reservas</a>
                     <a href="{{ route('logout') }}" style="color: red">Cerrar Sesión</a>
