@@ -14,7 +14,7 @@
             <form method="POST" action="{{ route('aut_register') }}">
                 @csrf
                 <label for="username">Nombre de usuario</label>
-                <input type="text" name="username" value="{{ old('name') }}" size=14 maxlength=20 placeholder="Nombre de usuario" checked = "checked">
+                <input type="text" name="username" value="{{ old('username') }}" size=14 maxlength=20 placeholder="Nombre de usuario" checked = "checked">
                 @if ($errors->has('username'))
                     <div class="alert alert-danger">{{ $errors->first('username') }}</div>
                 @endif

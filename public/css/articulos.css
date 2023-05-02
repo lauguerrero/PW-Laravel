@@ -129,7 +129,10 @@ button.buscar {
 .dropdown-content a:hover {background-color: #92e27a;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: white;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #71c55b;}
