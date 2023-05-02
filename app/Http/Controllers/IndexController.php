@@ -24,7 +24,7 @@ class IndexController extends Controller
 
     public function aut_login(Request $request){
         $this->validate($request, [
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|email',
             'contrasena' => 'required|string',
         ]);
 
