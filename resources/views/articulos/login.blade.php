@@ -15,7 +15,7 @@
             <form method="POST" action="{{ route('aut_login') }}">
                 @csrf
                 <label for="email">Email</label>
-                <input type="text" name="email" size=8 maxlength=20 checked = "checked">
+                <input type="text" name="email" size=8 maxlength=80 checked = "checked">
                 @if ($errors->has('email'))
                     <div class="alert alert-danger">{{ $errors->first('email') }}</div>
                 @endif
