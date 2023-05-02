@@ -6,12 +6,13 @@ use App\Models\Deseo;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticuloController extends Controller
 {
     public function articulos(){
         $articulos = Articulo::obtenerArticulos();
-        $logged_user = 1;
+        $logged_user = Auth::user()->Id_Usuario;
         $lista_deseos = Articulo::whereIn('Id_Articulo', function($query) use ($logged_user) {
             $query->select('id_Articulo')
                 ->from('Deseos')
@@ -22,7 +23,7 @@ class ArticuloController extends Controller
     }
 
     public function lista_deseos(){
-        $logged_user = 1; //Usuario logeado temporal de prueba
+        $logged_user = Auth::user()->Id_Usuario;
         $articulos = Articulo::whereIn('Id_Articulo', function($query) use ($logged_user) {
             $query->select('id_Articulo')
                 ->from('Deseos')
@@ -36,7 +37,7 @@ class ArticuloController extends Controller
     }
 
     public function add_lista_deseos_ART(Request $request){ //Añadir/Eliminar a la lsita de deseos desde la página "Articulos"
-        $logged_user = 1;
+        $logged_user = Auth::user()->Id_Usuario;
         $id_articulo = $request->input('Id_Articulo');
         if($request->input('add-listadeseados') == 'add'){
             Deseo::agregarDeseo($logged_user, $id_articulo);
@@ -57,7 +58,7 @@ class ArticuloController extends Controller
     }
 
     public function add_lista_deseos_LIS(Request $request){ //Añadir/Eliminar a la lista de deseos desde la página "Lista Deseos"
-        $logged_user = 1; //Usuario logeado temporal de prueba
+        $logged_user = Auth::user()->Id_Usuario;
         $id_articulo = $request->input('Id_Articulo');
         if($request->input('add-listadeseados') == 'add'){
             Deseo::agregarDeseo($logged_user, $id_articulo);
@@ -80,7 +81,7 @@ class ArticuloController extends Controller
     }
 
     public function addreserva(Request $request){
-        $logged_user = 1; //Usuario logeado temporal de prueba
+        $logged_user = Auth::user()->Id_Usuario;
         $id_articulo = $request->input('Id_Articulo');
 
         $art = Articulo::find($id_articulo);
@@ -97,7 +98,7 @@ class ArticuloController extends Controller
     }
 
     public function mostrar_articulo(Request $request){
-        $logged_user = 1; //Usuario logeado temporal de prueba
+        $logged_user = Auth::user()->Id_Usuario;
         $usuario = User::where('Id_Usuario', $logged_user)->first();
         $articulo = Articulo::where('Id_Articulo', $request->input('Id_Articulo'))->first();
         return view('articulos.producto')->with(['articulo'=>$articulo, 'usuario'=>$usuario]);
