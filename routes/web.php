@@ -21,7 +21,8 @@ Route::get('/', function () {
 Route::get('/articulos', [ArticuloController::class, 'articulos'])->name('articulos');
 Route::get('/listadeseos', [ArticuloController::class, 'lista_deseos'])->name('lista_deseos');
 
-Route::post('/addlistadeseos', [ArticuloController::class, 'add_lista_deseos'])->name('addlistadeseos');
+Route::get('/addlistadeseos_articulo', [ArticuloController::class, 'add_lista_deseos_ART'])->name('addlistadeseos_articulo');
+Route::get('/addlistadeseos_deseo', [ArticuloController::class, 'add_lista_deseos_LIS'])->name('addlistadeseos_deseo');
 
 Route::get('/login', [IndexController::class, 'login'])->name('login');
 Route::get('/register', [IndexController::class, 'register'])->name('register');

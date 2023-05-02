@@ -23,12 +23,12 @@ class Articulo extends Model
         'id_UReserva'
     ];
 
-    public function crearArticulo($datos)
+    public static function crearArticulo($datos)
     {
         return self::create($datos);
     }
 
-    public function eliminarArticulo($id)
+    public static function eliminarArticulo($id)
     {
         $articulo = self::find($id);
         if ($articulo) {
@@ -37,12 +37,12 @@ class Articulo extends Model
         return false;
     }
 
-    public function obtenerArticulos()
+    public static function obtenerArticulos()
     {
         return self::all();
     }
 
-    public function obtenerArticulo($id)
+    public static function obtenerArticulo($id)
     {
         return self::find($id);
     }

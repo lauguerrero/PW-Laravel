@@ -13,6 +13,7 @@ class Deseo extends Model
     protected $primaryKey = ['id_Usuario', 'id_Articulo'];
     public $incrementing = false;
     protected $keyType = 'string';
+    public $timestamps = false;
 
     public static function agregarDeseo($id_Usuario, $id_Articulo)
     {
@@ -24,10 +25,7 @@ class Deseo extends Model
 
     public static function eliminarDeseo($id_Usuario, $id_Articulo)
     {
-        $deseo = Deseo::find([$id_Usuario, $id_Articulo]);
-        if ($deseo) {
-            $deseo->delete();
-        }
+        $deletedRows = Deseo::where('id_Usuario', $id_Usuario)->where('id_Articulo', $id_Articulo)->delete();
     }
 
     public static function listaDeseos($id_Usuario)

@@ -49,7 +49,7 @@
                     @endif
 
                     <td><div style="text-align: center;">
-                        <form method="get" action='{{ route("addlistadeseos_articulo")}}'>
+                        <form method="get" action='{{ route("addlistadeseos_deseo")}}'>
                             <div class="add-listadeseados-container">
                                 <input type="hidden" name="Id_Articulo" value="{{$fila->Id_Articulo}}">
                                 @if($lista_deseos->contains('Id_Articulo', $fila->Id_Articulo))
