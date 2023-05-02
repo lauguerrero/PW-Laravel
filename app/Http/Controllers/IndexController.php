@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -27,12 +28,9 @@ class IndexController extends Controller
             'contrasena' => 'required|string',
         ]);
 
-        $credentials = [
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('contrasena'))
-        ];
-
-        if (Auth::attempt($credentials)) {
+        $user = User::where('email', $request->email)->first();
+        if ($user && Hash::check($request->contrasena, $user->contrasena)) {
+            Auth::login($user);
             return redirect('/articulos');
         }
 
@@ -64,5 +62,11 @@ class IndexController extends Controller
         Auth::login($user);
 
         return redirect('/articulos');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

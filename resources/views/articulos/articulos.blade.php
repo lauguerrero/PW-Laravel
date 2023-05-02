@@ -27,7 +27,7 @@
                     <a href="./Perfil.php">Mi Perfil</a>
                     <a href="{{ route('lista_deseos') }}">Lista Deseos</a>
                     <a href="./ListaReservas.php">Lista Reservas</a>
-                    <a href="./Home.html" style="color: red">Cerrar Sesión</a>
+                    <a href="{{ route('logout') }}" style="color: red">Cerrar Sesión</a>
                 </div>
             </div>
 
