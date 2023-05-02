@@ -11,7 +11,7 @@
         <h2>Segundas oportunidades para objetos únicos</h2>
 
         <section>
-            <form method="POST" action="{{ route('aut_register') }}">
+            <form method="POST" action="{{ route('aut_publicar') }}">
                 @csrf
                 <label for="username">Nombre de usuario</label>
                 <input type="text" name="username" value="{{ old('name') }}" size=14 maxlength=20 placeholder="Nombre de usuario" checked = "checked">

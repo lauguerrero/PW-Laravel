@@ -32,7 +32,7 @@
             </div>
 
             <div>
-                <button class="publicar" style="float:right;"><a class="publicar" href="./publicar.html">Publicar</a></button>
+                <button class="publicar" style="float:right;"><a class="publicar" href="{{ route('publicar') }}">Publicar</a></button>
             </div>
         </div>
 

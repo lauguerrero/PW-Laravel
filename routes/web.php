@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PublicarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,8 @@ Route::get('/', function () {
 //Rutas protegidas por inicio de sesión
 Route::middleware(['auth'])->group(function () {
     Route::get('/articulos', [ArticuloController::class, 'articulos'])->name('articulos');
+    Route::get('/publicar', [PublicarController::class, 'publicar'])->name('publicar');
+    Route::post('/aut_publicar', [PublicarController::class, 'aut_publicar'])->name('aut_publicar');
     Route::get('/listadeseos', [ArticuloController::class, 'lista_deseos'])->name('lista_deseos');
 
     Route::get('/addlistadeseos_articulo', [ArticuloController::class, 'add_lista_deseos_ART'])->name('addlistadeseos_articulo');
