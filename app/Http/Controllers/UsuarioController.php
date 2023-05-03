@@ -30,7 +30,7 @@ class UsuarioController extends Controller
             $request->session()->flash('success', 'Contraseña actualizada correctamente.');
             return redirect()->back();
         } else {
-            return redirect()->back()->with('error', 'La contraseña actual no es correcta.');
+            return redirect()->back()->withErrors(['pwd' => 'La contraseña actual no es correcta.']);
         }
     }
 }
