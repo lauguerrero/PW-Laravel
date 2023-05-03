@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('layouts.header')
+@section('contenido')
     <title>Publicar Articulo</title>
     <link rel="stylesheet" href="{{ URL::asset('css/publicar.css'); }}">
-</head>
-<body>
-
-    <h1>PUBLICACION</h1>
-    <br>
     
+    <h2>Publicar</h2>
+
     <form action = "{{ route('aut_publicar') }}" method = "POST" enctype="multipart/form-data">
 
         @csrf
@@ -66,5 +62,4 @@
 
     </form>  
 
-</body>
-</html>
+@endsection
