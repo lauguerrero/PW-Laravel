@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class ArticuloController extends Controller
 {
     public function articulos(){
-        $articulos = Articulo::obtenerArticulos();
+        $articulos = Articulo::obtenerArticulosSinReservar();
         $logged_user = Auth::user()->Id_Usuario;
         $lista_deseos = Articulo::whereIn('Id_Articulo', function($query) use ($logged_user) {
             $query->select('id_Articulo')
