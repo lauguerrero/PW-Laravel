@@ -12,7 +12,7 @@
         <h1>MENU DE ADMIN</h1>
         <h2>Este es el menu de administrador del sistema</h2>
 
-        <a href="ListaUsu.php" class="btn1">Lista de Usuarios</a>
+        <a href="{{ route('listaUsu') }}" class="btn1">Lista de Usuarios</a>
         <a href="ListaAdd.php" class="btn1">Lista de Articulos</a>
     </header>
 </body>

@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/perfil', [UsuarioController::class, 'showProfile'])->name('showProfile');
     Route::post('/perfil/changePassword', [UsuarioController::class, 'change_password'])->name('change_password');
+    
+    
 });
 
 Route::get('/login', [IndexController::class, 'login'])->name('login');
@@ -35,6 +37,10 @@ Route::get('/register', [IndexController::class, 'register'])->name('register');
 Route::post('/aut_login', [IndexController::class, 'aut_login'])->name('aut_login');
 Route::post('/aut_register', [IndexController::class, 'aut_register'])->name('aut_register');
 Route::get('/logout', [IndexController::class, 'logout'])->name('logout');
+
+Route::get('/menuAdmin',[IndexController::class, 'menuAdmin'])->name('menuAdmin');
+Route::get('/listaUsu',[IndexController::class, 'listaUsu'])->name('listaUsu');
+Route::post('/eliminarUsu',[IndexController::class, 'eliminarUsu'])->name('eliminarUsu');
 
 Route::middleware([
     'auth:sanctum',

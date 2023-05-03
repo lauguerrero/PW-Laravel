@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\User;
+use App\Models\Deseo;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -70,7 +72,32 @@ class IndexController extends Controller
         return redirect('/');
     }
 
+    //FUNCIONES ADMIN
     public function menuAdmin(){
         return view('articulos.menuAdmin');
     }
+
+    public function listaUsu(){
+        $usuarios = DB::table('Usuario')->get();
+        return view('articulos.listaUsu', compact('usuarios'));
+    }
+
+    public function eliminarUsu(Request $request){
+        $id = $request->input('Id_Usuario');
+        $deleted = 0;
+
+        $deleted += DB::statement("DELETE FROM Deseos WHERE id_Usuario = $id");
+
+
+        $deleted += DB::statement("DELETE FROM Articulo WHERE id_Usuario = $id");
+        
+        $deleted += DB::statement("DELETE FROM Usuario WHERE Id_Usuario = $id");
+        
+        if($deleted > 0){
+            return redirect()->route('listaUsu')->with('mensaje', 'Usuario eliminado correctamente.');
+        }else {
+            return redirect()->route('listaUsu')->with('mensaje_error', 'No se pudo eliminar el usuario.');
+        }
+    }
 }
+
