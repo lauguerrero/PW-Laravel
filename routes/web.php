@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\IndexController;
-
+<<<<<<< Updated upstream
 use App\Http\Controllers\UsuarioController;
-
+=======
 use App\Http\Controllers\PublicarController;
 
 
@@ -19,9 +19,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/publicar', [PublicarController::class, 'publicar'])->name('publicar');
     Route::post('/aut_publicar', [PublicarController::class, 'aut_publicar'])->name('aut_publicar');
     Route::get('/listadeseos', [ArticuloController::class, 'lista_deseos'])->name('lista_deseos');
+    Route::get('/listareservas', [ArticuloController::class, 'lista_reservas'])->name('lista_reservas');
 
-    Route::get('/addlistadeseos_articulo', [ArticuloController::class, 'add_lista_deseos_ART'])->name('addlistadeseos_articulo');
-    Route::get('/addlistadeseos_deseo', [ArticuloController::class, 'add_lista_deseos_LIS'])->name('addlistadeseos_deseo');
+    Route::get('/addlistadeseos', [ArticuloController::class, 'add_lista_deseos'])->name('addlistadeseos');
     Route::get('/addreserva', [ArticuloController::class, 'addreserva'])->name('addreserva');
 
     Route::get('/producto', [ArticuloController::class, 'mostrar_articulo'])->name('mostrar_articulo');

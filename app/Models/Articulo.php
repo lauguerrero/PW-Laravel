@@ -42,6 +42,11 @@ class Articulo extends Model
         return self::all();
     }
 
+    public static function obtenerArticulosSinReservar()
+    {
+        return self::all()->whereNull('id_UReserva');
+    }
+
     public static function obtenerArticulo($id)
     {
         return self::find($id);

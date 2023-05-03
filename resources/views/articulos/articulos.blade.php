@@ -26,7 +26,7 @@
                 <div class="dropdown-content" style="float:left;">
                     <a href="{{ route('showProfile') }}">Mi Perfil</a>
                     <a href="{{ route('lista_deseos') }}">Lista Deseos</a>
-                    <a href="./ListaReservas.php">Lista Reservas</a>
+                    <a href="{{ route('lista_reservas') }}">Lista Reservas</a>
                     <a href="{{ route('logout') }}" style="color: red">Cerrar Sesión</a>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     @endif
 
                     <td><div style="text-align: center;">
-                        <form method="get" action='{{ route("addlistadeseos_articulo")}}'>
+                        <form method="get" action='{{ route("addlistadeseos")}}'>
                             <div class="add-listadeseados-container">
                                 <input type="hidden" name="Id_Articulo" value="{{$fila->Id_Articulo}}">
                                 @if($lista_deseos->contains('Id_Articulo', $fila->Id_Articulo))
