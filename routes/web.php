@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\IndexController;
-<<<<<<< Updated upstream
+
 use App\Http\Controllers\UsuarioController;
-=======
+
 use App\Http\Controllers\PublicarController;
 
 
