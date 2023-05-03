@@ -85,11 +85,16 @@ class IndexController extends Controller
     public function eliminarUsu(Request $request){
         $id = $request->input('Id_Usuario');
         $deleted = 0;
-
-        $deleted += DB::statement("DELETE FROM Deseos WHERE id_Usuario = $id");
-
-
-        $deleted += DB::statement("DELETE FROM Articulo WHERE id_Usuario = $id");
+        
+        $deseos = Articulo::where('id_Usuario', $id)->get();
+        foreach ($deseos as $deseo){
+            Deseo::eliminarDeseo($id, $deseo->id_Articulo);
+        }
+        
+        $articulos = Articulo::where('id_Usuario', $id)->get();
+        foreach ($articulos as $articulo){
+            Articulo::eliminarArticulo($articulo->id_Articulo);
+        }
         
         $deleted += DB::statement("DELETE FROM Usuario WHERE Id_Usuario = $id");
         
