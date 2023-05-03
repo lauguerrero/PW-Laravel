@@ -6,22 +6,31 @@ use App\Models\User;
 use App\Models\Deseo;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
     public function showProfile(){
-        $logged_user = Session::get('id');
+        $user = Auth::user();
+        $articulos = Articulo::where('Id_Usuario', $user->Id_Usuario)->get();
 
-        $user = DB::table('Usuario')->where('Id_Usuario', '=', $logged_user)->first();
+        return view('articulos.perfil')->with(['articulos'=>$articulos, 'user'=>$user]);
+    }
 
-        if (!$user) {
-            abort(404, 'El registro no se ha encontrado.');
+    public function change_password(Request $request){
+        $user = Auth::user();
+        $currentPassword = $request->input('pwd');
+        $newPassword = $request->input('contra');
+
+        if (Hash::check($currentPassword, $user->contrasena)) {
+            $user->contrasena = Hash::make($newPassword);
+            $user->save();
+            
+            $request->session()->flash('success', 'Contraseña actualizada correctamente.');
+            return redirect()->back();
+        } else {
+            return redirect()->back()->with('error', 'La contraseña actual no es correcta.');
         }
-
-        $user_articles = DB::table('Articulo')->where('id_Usuario', '=', $logged_user)->get();
-
-        return view('profile', compact('user', 'user_articles'));
     }
 }
