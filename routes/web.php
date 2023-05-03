@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\IndexController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\UsuarioController;
+=======
+use App\Http\Controllers\PublicarController;
+>>>>>>> Stashed changes
 
 Route::get('/', function () {
     return view('articulos.index'); //esto debería ser la página "home" del proyecto anterior

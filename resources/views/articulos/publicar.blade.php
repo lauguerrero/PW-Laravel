@@ -14,8 +14,8 @@
         @csrf
 
         <p>Nombre del Articulo: <input type = "text" name = "nombre" size = "40"></p>
-        @if ($errors->has('Nombre'))
-                    <div class="alert alert-danger">{{ $errors->first('Nombre') }}</div>
+        @if ($errors->has('nombre'))
+                    <div class="alert alert-danger">{{ $errors->first('nombre') }}</div>
         @endif
         
         Tematica:
@@ -30,16 +30,16 @@
         </select>
 
         <p>Precio: <input type = "number" name = "precio"></p>
-        @if ($errors->has('Precio'))
-                    <div class="alert alert-danger">{{ $errors->first('Precio') }}</div>
+        @if ($errors->has('precio'))
+                    <div class="alert alert-danger">{{ $errors->first('precio') }}</div>
         @endif
         
         <!--<p>Descripcion: <input type = "text" name = "descripcion" size = "50" maxlength = "200"></p>-->
         <p>Descripcion:</p>
         <textarea name="descripcion" id="" size ="100" maxlength="300"></textarea>
         <br>
-        @if ($errors->has('Descripcion'))
-                    <div class="alert alert-danger">{{ $errors->first('Descripcion') }}</div>
+        @if ($errors->has('descripcion'))
+                    <div class="alert alert-danger">{{ $errors->first('descripcion') }}</div>
         @endif
 
         Estado:
@@ -49,14 +49,14 @@
             <option>Bueno</option>
             <option>Como Nuevo</option>
         </select>
-        @if ($errors->has('Estado'))
-                    <div class="alert alert-danger">{{ $errors->first('Estado') }}</div>
+        @if ($errors->has('estado'))
+                    <div class="alert alert-danger">{{ $errors->first('estado') }}</div>
         @endif
 
         <!--<p>Imagen: <input type = "text" name = "imagen"></p>-->
         <p>Imagen: <input type = "file" name = "imagen"></p>
-        @if ($errors->has('Imagen'))
-                    <div class="alert alert-danger">{{ $errors->first('Imagen') }}</div>
+        @if ($errors->has('imagen'))
+                    <div class="alert alert-danger">{{ $errors->first('imagen') }}</div>
         @endif
 
         <input type = "submit" value = "Enviar">
