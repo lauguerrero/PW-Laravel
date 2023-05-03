@@ -14,13 +14,13 @@
     <h3>Tu informacion</h3>
     <br>
     <div class = info>
-        Username: {{ $user->username }};
+        Username: {{ $user->username }}
         <br>
-        Nombre: {{ $user->Nombre }} {{ $user->Apellidos }};
+        Nombre: {{ $user->Nombre }} {{ $user->Apellidos }}
         <br>
-        Teléfono: {{ $user->Telefono }};
+        Teléfono: {{ $user->Telefono }}
         <br>
-        Correo: {{ $user->email }};
+        Correo: {{ $user->email }}
     </div>
     <div class=pass>
     Cambiar contraseña:
@@ -59,9 +59,9 @@
                     <form method="post">
                         <!-- Aquí puedes poner cualquier botón o formulario que necesites -->
                     </form>
-                    <form action="{{ route('producto') }}" method="get">
+                    <form action="{{ route('mostrar_articulo') }}" method="get">
                         <input type="hidden" name="Id_Articulo" value="{{ $articulo->Id_Articulo }}">
-                        <input type="image" alt="Submit" class="imagen-anuncio" height="300" width="250" src="{{ $articulo->Imagen }}">
+                        <input type="image" alt="Foto de articulo publicado" class="imagen-anuncio" height="300" width="250" src="{{ $articulo->Imagen }}">
                         <br>
                         <button type="submit" class="texto-anuncio">
                             <div class="texto-anuncio" align="center">{{ $articulo->Nombre }} - {{ $articulo->Precio }}€</div>
