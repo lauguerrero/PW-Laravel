@@ -14,13 +14,13 @@
     <h3>Tu informacion</h3>
     <br>
     <div class = info>
-        Username: {{ $user->username }};
+        Username: {{ $user->username }}
         <br>
-        Nombre: {{ $user->Nombre }} {{ $user->Apellidos }};
+        Nombre: {{ $user->Nombre }} {{ $user->Apellidos }}
         <br>
-        Teléfono: {{ $user->Telefono }};
+        Teléfono: {{ $user->Telefono }}
         <br>
-        Correo: {{ $user->email }};
+        Correo: {{ $user->email }}
     </div>
     <div class=pass>
     Cambiar contraseña:
