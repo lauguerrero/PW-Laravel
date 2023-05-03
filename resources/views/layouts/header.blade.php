@@ -6,7 +6,7 @@
         <style>
 		header {
 			background-color: #4ea93b;
-			height: 60px;
+			height: 80px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -15,7 +15,7 @@
 		
 		h1 {
 			color: white;
-			font-size: 24px;
+			font-size: 30px;
 			margin: 0;
 		}
 	</style>
