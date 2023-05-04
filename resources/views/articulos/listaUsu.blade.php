@@ -40,5 +40,7 @@
         <input type="submit" value="Eliminar">
     </form>
 
+    <h2>INSERTAR USUARIO</h2>
+    <a href="{{ route('mostrarInsertarUsu') }}">Añadir nuevo usuario</a>
 </body>
 </html>

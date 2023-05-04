@@ -108,4 +108,31 @@ class IndexController extends Controller
             return redirect()->route('listaUsu')->with('mensaje_error', 'No se pudo eliminar el usuario.');
         }
     }
+
+    public function mostrarInsertarUsu(){
+        return view('articulos.registerAdmin');
+    }
+    public function validarInsertarUsu(Request $request){
+        $this->validate($request, [
+            'username' => 'required|string|unique:Usuario|max:255',
+            'Nombre' => 'required|string|max:255',
+            'Apellidos' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:Usuario|max:255',
+            'esAdmin' => 'required',
+            'Telefono' => 'required|integer|unique:Usuario|digits:9',
+            'contrasena' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = User::create([
+            'username' => $request->username,
+            'Nombre' => $request->Nombre,
+            'Apellidos' => $request->Apellidos,
+            'email' => $request->email,
+            'Telefono' => $request->Telefono,
+            'contrasena' => bcrypt($request->contrasena),
+            'esAdmin' => $request->esAdmin,
+        ]);
+
+        return redirect('/listaUsu');
+    }
 }

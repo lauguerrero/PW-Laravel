@@ -41,6 +41,8 @@ Route::get('/logout', [IndexController::class, 'logout'])->name('logout');
 Route::get('/menuAdmin',[IndexController::class, 'menuAdmin'])->name('menuAdmin');
 Route::get('/listaUsu',[IndexController::class, 'listaUsu'])->name('listaUsu');
 Route::post('/eliminarUsu',[IndexController::class, 'eliminarUsu'])->name('eliminarUsu');
+Route::get('/mostrarInsertarUsu', [IndexController::class, 'mostrarInsertarUsu'])->name('mostrarInsertarUsu');
+Route::post('/validarInsertarUsu', [IndexController::class, 'validarInsertarUsu'])->name('validarInsertarUsu');
 
 Route::middleware([
     'auth:sanctum',
