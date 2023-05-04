@@ -35,20 +35,9 @@
     <h2>ELIMINACIÓN DE USUARIO</h2>
     <form method="POST" action="{{ route('eliminarUsu') }}">
         @csrf
-        <label for="usuario">Seleccione el id del usuario a eliminar:</label>
+        <label for="Id_Usuario">Seleccione el id del usuario a eliminar:</label>
         <input type="number" name="Id_Usuario">
         <input type="submit" value="Eliminar">
-        @if (session('mensaje'))
-            <div class="alert alert-success">
-                {{ session('mensaje') }}
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
     </form>
 
 </body>

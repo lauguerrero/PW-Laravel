@@ -33,7 +33,11 @@ class IndexController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user && Hash::check($request->contrasena, $user->contrasena)) {
             Auth::login($user);
-            return redirect('/articulos');
+            if ($user->esAdmin) {
+                return redirect('/menuAdmin');
+            } else {
+                return redirect('/articulos');
+            }
         }
 
         return redirect('/login')->withErrors([
@@ -86,7 +90,7 @@ class IndexController extends Controller
         $id = $request->input('Id_Usuario');
         $deleted = 0;
         
-        $deseos = Articulo::where('id_Usuario', $id)->get();
+        $deseos = Deseo::where('id_Usuario', $id)->get();
         foreach ($deseos as $deseo){
             Deseo::eliminarDeseo($id, $deseo->id_Articulo);
         }
@@ -105,4 +109,3 @@ class IndexController extends Controller
         }
     }
 }
-
