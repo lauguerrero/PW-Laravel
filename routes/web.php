@@ -44,6 +44,8 @@ Route::post('/eliminarUsu',[IndexController::class, 'eliminarUsu'])->name('elimi
 Route::get('/mostrarInsertarUsu', [IndexController::class, 'mostrarInsertarUsu'])->name('mostrarInsertarUsu');
 Route::post('/validarInsertarUsu', [IndexController::class, 'validarInsertarUsu'])->name('validarInsertarUsu');
 
+Route::get('/listaArt',[IndexController::class, 'listaArt'])->name('listaArt');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -86,6 +86,11 @@ class IndexController extends Controller
         return view('articulos.listaUsu', compact('usuarios'));
     }
 
+    public function listaArt(){
+        $articulos = DB::table('Articulo')->get();
+        return view('articulos.listaArt', compact('articulos'));
+    }
+
     public function eliminarUsu(Request $request){
         $id = $request->input('Id_Usuario');
         $deleted = 0;
@@ -112,6 +117,7 @@ class IndexController extends Controller
     public function mostrarInsertarUsu(){
         return view('articulos.registerAdmin');
     }
+
     public function validarInsertarUsu(Request $request){
         $this->validate($request, [
             'username' => 'required|string|unique:Usuario|max:255',
