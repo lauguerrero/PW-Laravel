@@ -95,23 +95,53 @@ class IndexController extends Controller
         $id = $request->input('Id_Usuario');
         $deleted = 0;
         
-        $deseos = Deseo::where('id_Usuario', $id)->get();
-        foreach ($deseos as $deseo){
-            Deseo::eliminarDeseo($id, $deseo->id_Articulo);
+        $user = User::where('Id_Usuario', $id);
+        if($user->exists()){
+            $deseos = Deseo::where('id_Usuario', $id)->get();
+            foreach ($deseos as $deseo){
+                Deseo::eliminarDeseo($id, $deseo->id_Articulo);
+            }
+            
+            $articulos = Articulo::where('id_Usuario', $id)->get();
+            foreach ($articulos as $articulo){
+                Articulo::eliminarArticulo($articulo->id_Articulo);
+            }
+            
+            $deleted = DB::statement("DELETE FROM Usuario WHERE Id_Usuario = $id");
+
+            if($deleted > 0){
+                return redirect()->route('listaUsu')->with('mensaje', 'Usuario eliminado correctamente.');
+            }else {
+                return redirect()->route('listaUsu')->with('mensaje_error', 'No se pudo eliminar el usuario.');
+            }
+        }
+        else{
+            return redirect()->route('listaUsu')->with('mensaje_error', 'El usuario no existe, por favor introduce un ID valido.');
         }
         
-        $articulos = Articulo::where('id_Usuario', $id)->get();
-        foreach ($articulos as $articulo){
-            Articulo::eliminarArticulo($articulo->id_Articulo);
-        }
+    }
+
+    public function eliminarArt(Request $request){
+        $id = $request->input('Id_Articulo');
+        $deleted = 0;
         
-        $deleted += DB::statement("DELETE FROM Usuario WHERE Id_Usuario = $id");
-        
-        if($deleted > 0){
-            return redirect()->route('listaUsu')->with('mensaje', 'Usuario eliminado correctamente.');
-        }else {
-            return redirect()->route('listaUsu')->with('mensaje_error', 'No se pudo eliminar el usuario.');
-        }
+        $articulo = Articulo::where('Id_Articulo', $id);
+        if ($articulo->exists()) {
+            $deseos = Deseo::where('id_Articulo', $id)->get();
+            foreach ($deseos as $deseo){
+                Deseo::eliminarDeseo($deseo->id_Usuario, $id);
+            }
+            
+            $deleted = DB::statement("DELETE FROM Articulo WHERE Id_Articulo = $id");
+            
+            if($deleted > 0){
+                return redirect()->route('listaArt')->with('mensaje', 'Articulo eliminado correctamente.');
+            }else {
+                return redirect()->route('listaArt')->with('mensaje_error', 'No se pudo eliminar el articulo.');
+            }
+        } else {
+            return redirect()->route('listaArt')->with('mensaje_error', 'El articulo no existe, por favor introduce un ID valido.');
+        }   
     }
 
     public function mostrarInsertarUsu(){

@@ -35,11 +35,22 @@
     </table>
 
     <h2>ELIMINACIÓN DE ARTICULO</h2>
-    <form method="POST" action="{{ route('eliminarUsu') }}">
+    <form method="POST" action="{{ route('eliminarArt') }}">
         @csrf
         <label for="Id_Articulo">Seleccione el id del articulo a eliminar:</label>
         <input type="number" name="Id_Articulo">
         <input type="submit" value="Eliminar">
+        @if (session('mensaje'))
+            <div class="alert alert-success">
+                {{ session('mensaje') }}
+            </div>
+        @endif
+
+        @if (session('mensaje_error'))
+            <div class="alert alert-danger">
+                {{ session('mensaje_error') }}
+            </div>
+        @endif
     </form>
 
     <h2>INSERTAR ARTICULO</h2>
