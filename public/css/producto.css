@@ -1,47 +1,91 @@
+/* Estilos generales */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #f0f0f0;
 }
-  
-h2 {
+
+.cuadro{
     text-align: center;
-    color: #005200
+    color: #ffff;
+    background-color: #005200;
+    padding: 10px;
+    margin-left: 456px;
+    margin-right: 456px;
+    border-radius: 5px;
 }
-  
+
 table {
     margin: 0 auto;
     border-collapse: collapse;
-    border: 1px solid #441fd7;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
-  
+
 td {
-    padding: 10px;
-    border: 1px solid #258d19;
+    padding: 20px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    font-size: 18px;
 }
-  
+
 td:first-child {
-    width: 150px;
+    width: 250px;
+    background-color: #f8f8f8;
 }
-  
+
 td:last-child {
     font-weight: bold;
     text-align: center;
-}  
+}
 
-.uno td {
-    color :rgb(0, 0, 0);
-
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+#td2{
+    padding-top: 170px;
 }
 
 /* Estilo del botón para reservar*/
+
 .add-reserva {
     background-color: #4ea93b;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 16px 24px;
+    font-size: 20px;
     border: none;
-    border-radius: 5px 5px 5px 5px;
-    margin-right: 5px;
-    text-decoration:none;
+    border-radius: 5px;
+    margin-top: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.add-reserva:hover {
+    background-color: #258d19;
+}
+
+/* Estilos para pantallas pequeñas */
+
+@media only screen and (max-width: 600px) {
+    td:first-child {
+        width: 100%;
+    }
+    td {
+        display: block;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+    }
+    img {
+        margin: 30px 0;
+    }
+}
+
   

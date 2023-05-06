@@ -1,30 +1,34 @@
 @extends('layouts.header')
 @section('contenido')
+<br>
 <link rel = "stylesheet" href = "{{ URL::asset('css/producto.css'); }}"> 
 
 
-<h2>Mostrar Producto</h2>
+<div class="cuadro">
+    <h2>{{ $articulo->Nombre }}</h2>
+</div>
 
-<table>
-    <tr class="uno">
-        <td>
-            <img height="300" width="250" src="{{ asset(convertir_ruta($articulo->Imagen))}}">
-        </td>
-
-        <td rowspan="2">
-            {{ $articulo->Nombre }}<br><br>
-            Categoria: {{ $articulo->Tematica }}<br><br>
-            Precio: {{ $articulo->Precio}}€<br><br>
-            Telefono Contacto: {{ $usuario->Telefono }}
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            {{ $articulo->Descripcion }}
-        </td>
-    </tr>
-</table>
+<div class="tabla">
+    <table>
+        <tr class="uno">
+            <td>
+                <img height="300" width="250" src="{{ asset(convertir_ruta($articulo->Imagen))}}">
+            </td>
+        
+            <td id="td2" rowspan="2">
+                Categoria: {{ $articulo->Tematica }}<br><br>
+                Precio: {{ $articulo->Precio}}€<br><br>
+                Telefono Contacto: {{ $usuario->Telefono }}
+            </td>
+        </tr>
+    
+        <tr>
+            <td>
+                {{ $articulo->Descripcion }}
+            </td>
+        </tr>
+    </table>
+</div>
 <br>
 
 <form method="get" action = '{{ route("addreserva")}}'>

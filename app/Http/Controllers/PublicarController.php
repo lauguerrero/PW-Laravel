@@ -14,6 +14,7 @@ class PublicarController extends Controller
 
     public function aut_publicar(Request $request){
         $logged_user = Auth::user()->Id_Usuario;
+        $user = Auth::user();
 
         $this->validate($request, [
             'Nombre' => 'required|string|max:255',
@@ -36,6 +37,11 @@ class PublicarController extends Controller
         $articulo->id_UReserva = NULL;
         $articulo->save();
 
-        return redirect('/articulos');
+        if ($user->esAdmin) {
+            return redirect('/listaArt');
+        } else {
+            return redirect('/articulos');
+        }
+        
     }
 }

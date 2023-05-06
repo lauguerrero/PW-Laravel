@@ -42,12 +42,13 @@ h2 {
     text-decoration: none;
     border-radius: 5px;
     font-size: 25px;
+    margin: 20px;
 }
 
 .btn1:hover {
-    background-color: #005c00;
+    background-color: #71c55b;
     font-size: x-large;
-    color: #71c55b;
+    color: black
 }
 
 /* Estilos para pantallas pequeñas */

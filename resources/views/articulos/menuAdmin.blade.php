@@ -4,7 +4,7 @@
 <head>
     <title>TheReUseShop_Admin</title>
 
-    <link rel="stylesheet" href="{{ URL::asset('css/Home.css'); }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/home_admin.css'); }}">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         <h2>Este es el menu de administrador del sistema</h2>
 
         <a href="{{ route('listaUsu') }}" class="btn1">Lista de Usuarios</a>
-        <a href="ListaAdd.php" class="btn1">Lista de Articulos</a>
+        <a href="{{ route('listaArt') }}" class="btn1">Lista de Articulos</a>
     </header>
 </body>
 

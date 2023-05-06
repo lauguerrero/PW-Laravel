@@ -1,40 +1,40 @@
 @extends('layouts.header')
 @section('contenido')
-
+<br>
 <link rel="stylesheet" href="{{ URL::asset('css/articulos.css'); }}">
 
-<div class="upperbar-container">
-            <div class="searchbar" style="float:left;">
-                <form method="post"> 
-                    <input class="buscar" type="search" id="query" name="q" size="50" placeholder="Buscar artículos...">
-                    <select name = "Filtro">
-                        <option selected>Categoria</option>
-                        <option>Deporte y ocio</option>
-                        <option>Electronica</option>
-                        <option>Moda y accesorios</option>
-                        <option>Inmobiliaria</option>
-                        <option>Libros</option>
-                        <option>Coleccionismo</option>
-                        <option>Otros</option>
-                    </select>
-                    <button class="buscar" type="submit" name="boton-buscar">Buscar</button>
-                </form>
-            </div>
+        
+        <div class="searchbar" style="float:left;">
+            <form method="post"> 
+                <input class="buscar" type="search" id="query" name="q" size="50" placeholder="Buscar artículos...">
+                <select name = "Filtro">
+                    <option selected>Categoria</option>
+                    <option>Deporte y ocio</option>
+                    <option>Electronica</option>
+                    <option>Moda y accesorios</option>
+                    <option>Inmobiliaria</option>
+                    <option>Libros</option>
+                    <option>Coleccionismo</option>
+                    <option>Otros</option>
+                </select>
+                <button class="buscar" type="submit" name="boton-buscar">Buscar</button>
+            </form>
+        </div>
 
-            <div class="dropdown" style="float:right;">
-                <button class="userbtn">Usuario</button>
-                <div class="dropdown-content" style="float:left;">
-                    <a href="{{ route('showProfile') }}">Mi Perfil</a>
-                    <a href="{{ route('lista_deseos') }}">Lista Deseos</a>
-                    <a href="{{ route('lista_reservas') }}">Lista Reservas</a>
-                    <a href="{{ route('logout') }}" style="color: red">Cerrar Sesión</a>
-                </div>
-            </div>
-
-            <div>
-                <button class="publicar" style="float:right;"><a class="publicar" href="{{ route('publicar') }}">Publicar</a></button>
+        <div class="dropdown" style="float:right;">
+            <button class="userbtn">Usuario</button>
+            <div class="dropdown-content" style="float:left;">
+                <a href="{{ route('showProfile') }}">Mi Perfil</a>
+                <a href="{{ route('lista_deseos') }}">Lista Deseos</a>
+                <a href="{{ route('lista_reservas') }}">Lista Reservas</a>
+                <a href="{{ route('logout') }}" style="color: red">Cerrar Sesión</a>
             </div>
         </div>
+
+        <div>
+            <button class="publicar" style="float:right;"><a class="publicar" href="{{ route('publicar') }}">Publicar</a></button>
+        </div>
+
 
         <div class="table-container">
             <table class='anuncios'>

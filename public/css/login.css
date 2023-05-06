@@ -7,6 +7,9 @@ header {
     color: #ffffff;
     text-align: center;
     padding: 20px;
+    background-image: url("../img/fondo_verde.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {

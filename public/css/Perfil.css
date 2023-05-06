@@ -1,98 +1,151 @@
+
+/* Estilos mejorados para la página de perfil */
+
 body {
-    background-color: #F0FFF0;
-    color: #006400;
     font-family: Arial, sans-serif;
-    font-size: 16px;
-}
+    background-color: #F5F5F5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/fondo_verde.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+    h1, h2 {
+    margin-top: 20px;
+    color: white;
+    }
 
-h2 {
-    color: #006400;
-    text-align: center;
-    font-size: 25px;
-}
-
-.info {
-    margin-left: 25%;
-    margin-right: 25%;
-    padding: 10px;
-    background-color: #FFFFFF;
-    border: 1px solid #006400;
+    span {
+        font-size: 40px;
+        color: #005c00;
+    }
+    
+    .info {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border: 1px solid #90EE90;
     border-radius: 5px;
-}
-
-.pass {
-    margin-left: 25%;
-    margin-right: 25%;
-    padding: 10px;
-    background-color: #FFFFFF;
-    border: 1px solid #006400;
+    margin-bottom: 20px;
+    text-align: center; /* centro el contenido */
+    font-size: larger;
+    }
+    
+    .pass {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border: 1px solid #90EE90;
     border-radius: 5px;
-}
-
-label {
+    margin-bottom: 20px;
+    text-align: center; /* centro el contenido */
+    
+    }
+    
+    label {
     display: block;
     margin-top: 10px;
-    color: #006400;
-}
-
-input[type="password"] {
-    display: block;
+    }
+    
+    input[type="password"] {
+    width: 100%;
+    padding: 10px;
     margin-top: 5px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
     border-radius: 3px;
-    border: 1px solid #006400;
-}
-
-input[type="submit"] {
-    margin-top: 10px;
-    background-color: #006400;
-    color: #FFFFFF;
-    border-radius: 3px;
+    }
+    
+    input[type="submit"] {
+    background-color: #90EE90;
+    color: #333;
     border: none;
-    padding: 5px 10px;
+    border-radius: 3px;
+    padding: 10px 20px;
     cursor: pointer;
-}
-
-table {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    transition: background-color 0.3s ease;
+    }
+    
+    input[type="submit"]:hover {
+    background-color: #2E8B57;
+    color: #fff;
+    }
+    
+    .table-container {
+    overflow-x: auto;
+    }
+    
+    .anuncios {
     border-collapse: collapse;
-}
-
-table td {
-    border: 1px solid #006400;
-    padding: 10px;
-}
-
-table img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-}
-
-.imagen-anuncio {
+    margin: 20px 0;
+    width: 100%;
+    }
+    
+    .anuncios td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .anuncios tr:nth-child(even) {
+    background-color: #f2f2f2;
+    }
+    
+    .imagen-anuncio {
     border: none;
-    background-color: #FFFFFF;
-}
-
-.texto-anuncio {
-    background-color: #006400;
-    color: #FFFFFF;
+    }
+    
+    .texto-anuncio {
+    background-color: #90EE90;
+    border: none;
     border-radius: 3px;
-    border: none;
-    padding: 5px 10px;
+    color: #333;
     cursor: pointer;
-}
-
-.table-container {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-h3{
-    display: flex;
-    justify-content: center;
-}
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    }
+    
+    .texto-anuncio:hover {
+    background-color: #2E8B57;
+    color: #fff;
+    }
+    
+    /* mejoro a nivel visual */
+    
+    h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 30px 0 20px;
+    }
+    
+    h2 {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+    }
+    
+    .info p, .pass p {
+    font-size: 16px;
+    line-height: 1.5;
+    }
+    
+    .anuncios th {
+    background-color: #90EE90;
+    border: none;
+    border-radius: 3px;
+    color: #333;
+    padding: 10px;
+    }
+    
+    .anuncios td {
+    font-size: 14px;
+    line-height: 1.5;
+    }
+    
+    .texto-anuncio {
+    font-size: 14px;
+    font-weight: bold;
+    }

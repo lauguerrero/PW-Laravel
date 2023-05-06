@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <h2>Bienvenido a tu perfil {{ $user->Nombre }}</h2>
-    <h3>Tu informacion</h3>
+    <h1>Bienvenido a tu perfil <Span>{{ $user->Nombre }}</Span></h1>
+    <h1>Tu informacion</h1>
     <br>
     <div class = info>
         Username: {{ $user->username }}
@@ -47,7 +47,7 @@
     </form>
     </div>
 
-    <h3>Tus articulos publicados</h3>
+    <h1>Tus articulos publicados</h1>
     <div class=table-container>
     <table class=anuncios>
         @foreach ($articulos as $articulo)

@@ -24,7 +24,6 @@
 	<header class="header" onclick="window.location.href='{{ route('articulos') }}'">
 		<h1>TheReUseShop</h1>
 	</header>
-        <br>
         @yield('contenido')
     </body>
 </html>
