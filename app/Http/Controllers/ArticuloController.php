@@ -82,4 +82,27 @@ class ArticuloController extends Controller
         $articulo->save();
         return back();
     }
+
+    public function buscar(Request $request){
+        $q = $request->input('q');
+        $filtro = $request->input('Filtro');
+        $logged_user = Auth::user()->Id_Usuario;
+        $lista_deseos = Articulo::whereIn('Id_Articulo', function($query) use ($logged_user) {
+            $query->select('id_Articulo')
+                ->from('Deseos')
+                ->where('id_Usuario', '=', $logged_user);
+        })->get();
+
+        $articulos = Articulo::where('Nombre', 'like', '%' . $q . '%')->where('id_UReserva', null)->get();
+        if($filtro != 'Categoria'){
+            $articulos = Articulo::where('Tematica', 'like', '%'.$filtro.'%')
+                ->whereIn('Id_Articulo', function($query) use ($q) {
+                    $query->select('Id_Articulo')
+                          ->from('Articulo')
+                          ->where('Nombre', 'like', '%'.$q.'%')
+                          ->where('id_UReserva', null);
+                })->get();
+        }
+        return view('articulos.articulos')->with(['articulos'=>$articulos, 'lista_deseos'=>$lista_deseos]);
+    }
 }

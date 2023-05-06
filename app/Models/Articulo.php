@@ -51,4 +51,12 @@ class Articulo extends Model
     {
         return self::find($id);
     }
+
+    public static function buscarArticulos($query, $filtro) {
+        $consulta = self::all()->where('Nombre', 'like', '%' . $query . '%');
+        if($filtro != 'Categoria') {
+            $consulta->where('Tematica', 'like', '%' . $filtro . '%');
+        }
+        return $consulta->get();
+    }    
 }

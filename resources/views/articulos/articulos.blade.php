@@ -5,7 +5,7 @@
 
         
         <div class="searchbar" style="float:left;">
-            <form method="post"> 
+            <form method="get" action='{{ route("buscar")}}'>
                 <input class="buscar" type="search" id="query" name="q" size="50" placeholder="Buscar artículos...">
                 <select name = "Filtro">
                     <option selected>Categoria</option>
